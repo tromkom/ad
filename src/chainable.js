@@ -24,6 +24,7 @@
  *  ad.group().add();
  *  ad.group(groupName).get(opts);
  *  ad.group(groupName).exists();
+ *  ad.group(groupName).members();
  *  ad.group(groupName).addUser(userName);
  *  ad.group(groupName).removeUser(userName);
  *  ad.group(groupName).remove();
@@ -122,6 +123,9 @@ module.exports = {
       },
       exists: () => {
         return this.groupExists(groupName);
+      },
+      members: () => {
+        return this._getGroupUsers(groupName);
       },
       addUser: userName => {
         return this.addUserToGroup(userName, groupName);
