@@ -234,6 +234,18 @@ module.exports = {
         includeMembership: ['all'],
         includeDeleted: false
       };
+      
+      // The ability to select what attributes to return
+      if (opts) {
+        if (opts.fields && opts.fields.length) {
+          if (opts.fields === 'all' || opts.fields.includes('all')) {
+            params.attributes = ['*'];
+            delete opts.fields;
+          } else {
+            params.attributes = ['dn'].concat(opts.fields);
+          }
+        }
+      }
       this.ad.find(params, (err, results) => {
         if (err) {
           /* istanbul ignore next */
