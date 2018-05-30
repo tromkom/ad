@@ -38,7 +38,9 @@ module.exports = {
         email,
         title,
         phone,
-        location
+        location,
+        department,
+        office
       } = opts;
 
       let { passwordExpires, enabled } = opts;
@@ -76,6 +78,8 @@ module.exports = {
         mail: email,
         uid: userName,
         title: title,
+        department: department,
+        office: office,
         telephone: phone,
         userPrincipalName: `${userName}@${this.config.domain}`,
         sAMAccountName: userName,
