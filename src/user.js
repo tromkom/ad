@@ -231,17 +231,11 @@ module.exports = {
       if (cached) {
         return resolve(api.processResults(opts, [cached])[0]);
       }
-      // We need to be able to search by UPN so we check to see if the provided username is a UPN or a sAMAccountName
-      //const domain = this.config.domain;
-      //userName = userName.indexOf('@') > -1 ? userName.split('@')[0] : userName;
-      //const filter = `(|(userPrincipalName=${userName}@${domain})(sAMAccountName=${userName}))`;
-      let filter = ``; 
-      
-      if (userName.indexOf('@') > -1) {
-        filter = `((userPrincipalName=${userName}))`;
-      } else {
-        filter = `((sAMAccountName=${userName}))`;  
-      }
+     
+      const domain = this.config.domain;
+      userName = userName.indexOf('@') > -1 ? userName.split('@')[0] : userName;
+      const filter = `(|(userPrincipalName=${userName}@${domain})(sAMAccountName=${userName}))`;
+ 
       
       const params = {
         filter,
