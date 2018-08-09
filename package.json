@@ -1,6 +1,6 @@
 {
   "name": "ad",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "Active Directory API for Node",
   "main": "index.js",
   "scripts": {
