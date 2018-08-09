@@ -36,6 +36,7 @@ module.exports = {
         userName,
         pass,
         email,
+        userPrincipalName,
         title,
         phone,
         location,
@@ -81,7 +82,7 @@ module.exports = {
         department: department,
         office: office,
         telephone: phone,
-        userPrincipalName: `${userName}@${this.config.domain}`,
+        userPrincipalName: userPrincipalName,
         sAMAccountName: userName,
         objectClass: this.config.defaults.userObjectClass,
         userPassword: ssha.create(pass)
