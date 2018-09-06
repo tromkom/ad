@@ -239,7 +239,8 @@ module.exports = {
       
       const params = {
         filter,
-        includeMembership: ['all'],
+        // Some DCs just denies us operations if we ask for too many groups. 
+        //includeMembership: ['all'],
         includeDeleted: false
       };
       
